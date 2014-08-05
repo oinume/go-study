@@ -9,11 +9,13 @@ type User struct {
 	Name string
 }
 
+// 通常の埋め込み構造体
 type BannedUser struct {
 	User
 	BannedReason string
 }
 
+// ポインタ型の埋め込み構造体
 type PBannedUser struct {
 	*User
 	BannedReason string
@@ -24,5 +26,6 @@ func main() {
 	fmt.Println(user.Name)
 
 	puser := PBannedUser{&User{1, "oinume"}, "Too many spam"}
+	// なぜか puser.User.Name でも参照可能
 	fmt.Println(puser.User.Name)
 }
