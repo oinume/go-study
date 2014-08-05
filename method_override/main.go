@@ -1,3 +1,4 @@
+// メソッドの継承(override)
 package main
 
 import (
